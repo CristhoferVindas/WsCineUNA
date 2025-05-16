@@ -94,9 +94,6 @@ public class AsientoService {
                 if (asiento == null) {
                     return new Respuesta(false, CodigoRespuesta.ERROR_NOENCONTRADO, "No se encrontró el asiento a eliminar.", "eliminarAsiento NoResultException");
                 }
-                
-//                Sala sala = em.find(Sala.class, asiento.getAsiIdsal().getSalId());
-//                sala.getAsientoList().remove(asiento);
                 em.remove(asiento);
             } else {
                 return new Respuesta(false, CodigoRespuesta.ERROR_NOENCONTRADO, "Debe cargar el asiento a eliminar.", "eliminarAsiento NoResultException");

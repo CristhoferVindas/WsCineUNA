@@ -181,14 +181,14 @@ public class PeliculaService {
             for (Pelicula pelicula : peliculas) {
                 PeliculaDto peliculaDto = new PeliculaDto(pelicula);
                 File portadaInglesFile = new File("..\\Portadas\\" + peliculaDto.getPortadaIngles());
-                FileInputStream portadaInglesInputStream = new FileInputStream(portadaInglesFile);// "C:\\Users\\Cristhofer\\Desktop\\UNA\\CineUNA(Cliente-Servidor)\\WsCineUNA\\Imagenes\\"+
+                FileInputStream portadaInglesInputStream = new FileInputStream(portadaInglesFile);
                 byte[] portadaInglesByte = portadaInglesInputStream.readAllBytes();
                 String portadaInglesEncode = Base64.getEncoder().encodeToString(portadaInglesByte);
                 peliculaDto.setPortadaIngles(portadaInglesEncode);
                 portadaInglesInputStream.close();
 
                 File portadaEspanolFile = new File("..\\Portadas\\" + peliculaDto.getPortadaEspannol());
-                FileInputStream portadaEspanolInputStream = new FileInputStream(portadaEspanolFile);// "C:\\Users\\Cristhofer\\Desktop\\UNA\\CineUNA(Cliente-Servidor)\\WsCineUNA\\Imagenes\\"+
+                FileInputStream portadaEspanolInputStream = new FileInputStream(portadaEspanolFile);
                 byte[] portadaEspanolByte = portadaEspanolInputStream.readAllBytes();
                 String portadaEspanolEncoded = Base64.getEncoder().encodeToString(portadaEspanolByte);
                 peliculaDto.setPortadaEspannol(portadaEspanolEncoded);
@@ -234,14 +234,14 @@ public class PeliculaService {
 
                 PeliculaDto peliculaDto = new PeliculaDto(pelicula);
                 File portadaInglesFile = new File("..\\Portadas\\" + peliculaDto.getPortadaIngles());
-                FileInputStream portadaInglesInputStream = new FileInputStream(portadaInglesFile);// "C:\\Users\\Cristhofer\\Desktop\\UNA\\CineUNA(Cliente-Servidor)\\WsCineUNA\\Imagenes\\"+
+                FileInputStream portadaInglesInputStream = new FileInputStream(portadaInglesFile);
                 byte[] portadaInglesByte = portadaInglesInputStream.readAllBytes();
                 String portadaInglesEncode = Base64.getEncoder().encodeToString(portadaInglesByte);
                 peliculaDto.setPortadaIngles(portadaInglesEncode);
                 portadaInglesInputStream.close();
 
                 File portadaEspanolFile = new File("..\\Portadas\\" + peliculaDto.getPortadaEspannol());
-                FileInputStream portadaEspanolInputStream = new FileInputStream(portadaEspanolFile);// "C:\\Users\\Cristhofer\\Desktop\\UNA\\CineUNA(Cliente-Servidor)\\WsCineUNA\\Imagenes\\"+
+                FileInputStream portadaEspanolInputStream = new FileInputStream(portadaEspanolFile);
                 byte[] portadaEspanolByte = portadaEspanolInputStream.readAllBytes();
                 String portadaEspanolEncoded = Base64.getEncoder().encodeToString(portadaEspanolByte);
                 peliculaDto.setPortadaEspannol(portadaEspanolEncoded);
