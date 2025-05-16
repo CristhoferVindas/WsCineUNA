@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="600" pageHeight="600" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="77281f49-69db-48ac-9a37-73cc4df6b748">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="57"/>
+	<property name="ireport.y" value="14"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cantidad" class="java.lang.Long">
+		<fieldDescription><![CDATA[cantidad]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha]]></fieldDescription>
+	</field>
+	<field name="horainicio" class="java.lang.String">
+		<fieldDescription><![CDATA[horainicio]]></fieldDescription>
+	</field>
+	<field name="peliculanombreEspañol" class="java.lang.String">
+		<fieldDescription><![CDATA[peliculanombreEspañol]]></fieldDescription>
+	</field>
+	<field name="peliculanombreIngles" class="java.lang.String">
+		<fieldDescription><![CDATA[peliculanombreIngles]]></fieldDescription>
+	</field>
+	<background>
+		<band height="600" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="600" height="600" backcolor="#000000" uuid="520da011-3a00-4486-8bd3-829bf11e9221"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="19" y="11" width="228" height="29" forecolor="#FFFFFF" backcolor="#FF0000" uuid="4f3882fe-3c55-4ef6-9074-6bad8722ef2b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Personas que vieron ]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="303" y="11" width="100" height="29" forecolor="#FFFFFF" backcolor="#FF0000" uuid="a43bdb26-6f21-4eb5-926e-0d199efb648d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{peliculanombreEspañol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="303" y="45" width="100" height="29" forecolor="#FFFFFF" backcolor="#FF0000" uuid="91f4ad51-7293-4cee-84ec-b661e7641ddf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{peliculanombreIngles}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement mode="Opaque" x="469" y="11" width="100" height="29" forecolor="#FFFFFF" backcolor="#FF0000" uuid="0cb01506-1247-4c56-838a-4a7cffcdd4dc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement mode="Opaque" x="469" y="45" width="100" height="29" forecolor="#FFFFFF" backcolor="#FF0000" uuid="a02ec276-81aa-4adf-9102-b9924431b173"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="19" y="0" width="567" height="52" forecolor="#FFFFFF" uuid="aff39ed5-731c-49c7-a96e-5b994f02329d"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="25" y="5" width="107" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="fcea98de-b2d4-4809-bcb4-5f6f44189298"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pelicula Español]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="136" y="5" width="107" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="5ee52dd6-1b7c-4fb1-8bef-2112b396d5b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pelicula Ingles]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="247" y="5" width="107" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="b42b6212-4001-4399-9b0d-609fe33914cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="358" y="5" width="107" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="e598a454-37b2-497c-a0b2-e50c834215c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="469" y="5" width="107" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="95919629-63dd-442a-affe-39ef14a195c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Personas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="25" y="5" width="105" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="ac2bddb3-ad5c-44ad-b7c2-b1576beda29c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{peliculanombreEspañol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="136" y="5" width="105" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="dd5a6995-947d-4d53-98d5-1f0ff1debfea"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{peliculanombreIngles}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="247" y="5" width="105" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="aeda3f5d-a940-493b-b405-4d57dcccdca0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="358" y="5" width="105" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="fd0cae6f-75b6-40d4-ba24-8571c19091bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horainicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="469" y="5" width="105" height="40" forecolor="#FFFFFF" backcolor="#FF0000" uuid="4fb947ee-b306-4307-8f29-64d73ecdaa06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
