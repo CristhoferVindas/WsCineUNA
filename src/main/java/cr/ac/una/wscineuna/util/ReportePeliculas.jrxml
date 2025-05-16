@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="600" pageHeight="600" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ebf3bc77-2bfd-4f5d-9b54-d7b695fd1e1c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="peliculanombreEspañol" class="java.lang.String">
+		<fieldDescription><![CDATA[peliculanombreEspañol]]></fieldDescription>
+	</field>
+	<field name="horainicio" class="java.lang.String">
+		<fieldDescription><![CDATA[horainicio]]></fieldDescription>
+	</field>
+	<field name="peliculanombreIngles" class="java.lang.String">
+		<fieldDescription><![CDATA[peliculanombreIngles]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.lang.Long">
+		<fieldDescription><![CDATA[cantidad]]></fieldDescription>
+	</field>
+	<variable name="peliculanombreIngles_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{peliculanombreIngles}]]></variableExpression>
+	</variable>
+	<background>
+		<band height="600" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="600" height="600" backcolor="#000000" uuid="1bf737b1-4cd7-4274-9741-317be7bce997"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="7" width="240" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="251f2d22-e1a4-4c95-9a9b-8e18de7d9113"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Reporte de Personas que vieron ]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="275" y="7" width="145" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="d47c5751-fb96-4c1a-9834-2c896da0f518"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{peliculanombreEspañol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="275" y="52" width="145" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="4962f1af-0339-4195-8536-ef7da749d807"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{peliculanombreIngles}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement mode="Opaque" x="439" y="7" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF0000" uuid="95f8d687-dc0f-4839-b647-723716e48dfd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement mode="Opaque" x="439" y="52" width="100" height="20" forecolor="#FFFFFF" backcolor="#FF0000" uuid="eb0133f5-6411-4282-a53f-370ecb895525"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="0" width="540" height="47" uuid="8184abec-cadc-4540-a6f2-492f817c9ca6"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="16" y="5" width="160" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="fc10b939-043c-4e8f-85f4-6e62658bd156"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="201" y="5" width="160" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="c4a0531e-4615-4e52-8ec2-16d9a6dd6722"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="386" y="5" width="160" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="148255d5-38b4-4c95-9260-1069f8525a73"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="16" y="5" width="160" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="29b2a78e-0b36-47fb-be14-695c1d7220e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="201" y="5" width="160" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="44bd2f4b-8e3d-4efe-96f8-058d83315512"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{horainicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="386" y="5" width="160" height="35" forecolor="#FFFFFF" backcolor="#FF0000" uuid="3305803d-0505-452f-8faa-c42c418cebdd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
