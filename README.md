@@ -1,120 +1,159 @@
-# 🎬 WsCineUNA
+# 🎬 WsCineUNA - Sistema de Gestión de Cine Universitario
 
-**WsCineUNA** es un sistema backend desarrollado en **Jakarta EE / Java EE** para gestionar operaciones de un cine universitario.  
-Incluye manejo de películas, salas, tandas (funciones), asientos, usuarios, facturación y alimentos, con endpoints RESTful y lógica empresarial organizada en controladores, servicios y modelos DTO.
+**WsCineUNA** es un sistema backend completo desarrollado en **Jakarta EE** para la gestión integral de operaciones de un cine universitario. Proporciona APIs RESTful para el manejo de películas, salas, horarios, asientos, usuarios, facturación y servicios de confitería.
 
----
+## 🚀 Tecnologías Principales
 
-## 🚀 Tecnologías
+- **Jakarta EE** - Plataforma empresarial
+- **JAX-RS** - Servicios REST con serialización JSON
+- **EJB** - Lógica de negocio con beans de sesión
+- **JPA/EclipseLink** - Persistencia de datos con MySQL
+- **JasperReports** - Generación de reportes PDF
+- **JWT** - Autenticación basada en tokens
+- **Maven** - Gestión de dependencias y construcción
 
-- Java (Jakarta EE)  
-- JAX-RS (RESTful services)  
-- EJB (Enterprise Java Beans)  
-- JPA (Java Persistence API)  
-- JasperReports (para generación de reportes PDF)  
-- Maven  
-- Base de datos: MySQL
-- Servidor: Payara / GlassFish 
+## 📋 Funcionalidades del Sistema
 
----
+### Gestión de Contenido
+- **Catálogo de Películas**: Soporte multiidioma (Español/Inglés) con imágenes
+- **Administración de Salas**: Configuración de teatros con mapas de asientos visuales
+- **Programación de Horarios**: Sistema de tandas para funciones de películas
 
-## 📁 Estructura del proyecto
+### Operaciones de Negocio
+- **Sistema de Reservas**: Seguimiento en tiempo real de disponibilidad de asientos
+- **Gestión de Usuarios**: Registro, autenticación y perfiles de clientes
+- **Punto de Venta**: Generación de facturas con integración de confitería
+- **Servicios de Alimentos**: Inventario y ventas de productos
 
-```
-src/
- └── main/
-      ├── java/cr/ac/una/wscineuna/
-      │    ├── controller/
-      │    ├── model/
-      │    ├── service/
-      │    ├── util/
-      │    └── resources/
-      └── resources/
-```
+### Reportes y Análisis
+- **Reportes de Asistencia**: Análisis por película y función
+- **Facturación**: Generación automática de PDFs
+- **Reportes de Catálogo**: Estadísticas de películas
 
----
+## 🏗️ Arquitectura del Sistema
 
-## ⚙️ Configuración del entorno
+### Controladores REST Principales
 
-1️⃣ **Clonar el repositorio**
+| Controlador | Endpoint Base | Funcionalidad |
+|-------------|---------------|---------------|
+| `PeliculaController` | `/pelicula` | CRUD de películas y reportes |
+| `SalaController` | `/sala` | Gestión de salas y asientos |
+| `TandaController` | `/tanda` | Programación de horarios |
+| `UsuarioController` | `/usuario` | Autenticación y perfiles |
+| `FacturaController` | `/factura` | Facturación y reportes |
+| `AlimentoController` | `/alimento` | Gestión de confitería |
 
+### Servicios EJB
+Cada controlador delega la lógica de negocio a servicios EJB especializados que manejan las operaciones de base de datos y reglas de negocio.
+
+## 🔧 Configuración e Instalación
+
+### Prerrequisitos
+- Java 11+
+- Payara/GlassFish Server
+- MySQL 8.0+
+- Maven 3.6+
+
+### Instalación
+
+1. **Clonar el repositorio**
 ```bash
 git clone https://github.com/CristhoferVindas/WsCineUNA.git
 cd WsCineUNA
 ```
 
-2️⃣ **Importar en tu IDE**
-
-- Usa NetBeans o IntelliJ con soporte Jakarta EE.  
-- Asegúrate de tener configurado el servidor Payara / GlassFish.
-
-3️⃣ **Configurar base de datos**
-
-En `persistence.xml` (usualmente en `META-INF/`), define:
-
+2. **Configurar base de datos**
+Editar `persistence.xml`:
 ```xml
 <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cineuna"/>
 <property name="javax.persistence.jdbc.user" value="tu_usuario"/>
 <property name="javax.persistence.jdbc.password" value="tu_password"/>
 ```
 
-4️⃣ **Construir el proyecto**
-
-```bash
-mvn clean install
-```
-
-5️⃣ **Desplegar en el servidor**
-
-Sube el `.war` generado a Payara / GlassFish.
-
----
-
-## 📚 Endpoints principales
-
-| Recurso    | Endpoint base    | Descripción                      |
-|------------|------------------|----------------------------------|
-| Películas  | `/pelicula`      | CRUD de películas                |
-| Salas      | `/sala`          | Gestión de salas                 |
-| Tandas     | `/tanda`         | Horarios/frecuencia de funciones |
-| Asientos   | `/asiento`       | Control de asientos              |
-| Usuarios   | `/usuario`       | Gestión de usuarios              |
-| Facturas   | `/factura`       | Facturación y reportes           |
-| Alimentos  | `/alimento`      | Productos de confitería          |
-
----
-
-## 🛡️ Seguridad
-
-El proyecto incluye:
-- `SecurityFilter.java` → filtro para seguridad en los endpoints.  
-- Autenticación básica o con tokens
-
----
-
-## 🧪 Reportes
-
-Se usa **JasperReports** (`Factura.jasper`, `Factura.jrxml`) para generar facturas en PDF como parte de la lógica de facturación.
-
----
-
-## 📦 Compilación y despliegue
-
-1️⃣ **Compilar**
-
+3. **Construir el proyecto**
 ```bash
 mvn clean package
 ```
 
-2️⃣ **Desplegar**
+4. **Desplegar en servidor**
+Subir el archivo `.war` generado a Payara/GlassFish
 
-El `.war` generado en `target/` puede subirse al servidor Payara / GlassFish.
+## 🛡️ Seguridad
 
----
+El sistema implementa:
+- **Filtro de Seguridad**: Control de acceso a endpoints
+- **Autenticación JWT**: Tokens seguros para sesiones
+- **Validación de Roles**: Control de acceso basado en permisos
+
+## 📊 Integración de Reportes
+
+Utiliza **JasperReports** para generar:
+- Facturas en PDF
+- Reportes de asistencia por película
+- Análisis de ventas de confitería
+- Estadísticas del catálogo
+
+## 🗂️ Estructura del Proyecto
+
+```
+src/main/java/cr/ac/una/wscineuna/
+├── controller/     # Controladores JAX-RS
+├── model/          # Entidades JPA y DTOs
+├── service/        # Servicios EJB de negocio
+├── util/           # Clases auxiliares y utilidades
+└── resources/      # Configuración JAX-RS
+```
+
+## 📡 Ejemplos de API
+
+### Obtener película por ID
+```http
+GET /ws/pelicula/peliculas/{id}
+Authorization: Bearer {jwt_token}
+```
+
+### Crear nueva sala
+```http
+POST /ws/sala
+Content-Type: application/json
+Authorization: Bearer {jwt_token}
+
+{
+  "nombre": "Sala Premium",
+  "detalle": "Sala con sonido Dolby",
+  "imagenAsiento": "base64_image_data"
+}
+```
+
+## 👨‍💻 Desarrollo
+
+### Entorno de Desarrollo
+- **IDE Recomendado**: NetBeans con soporte Jakarta EE
+- **Servidor de Desarrollo**: Payara/GlassFish
+- **Base de Datos**: MySQL con datasource `jdbcCine`
+
+### Comandos Útiles
+```bash
+# Compilar proyecto
+mvn clean compile
+
+# Ejecutar tests
+mvn test
+
+# Generar WAR
+mvn package
+
+# Limpiar y reconstruir
+mvn clean install
+```
+
+## 📄 Licencia
+
+Este proyecto es desarrollado para fines académicos en la Universidad Nacional de Costa Rica.
 
 ## ✨ Autor
 
-- **Cristhofer Vindas**  
-  GitHub: [CristhoferVindas](https://github.com/CristhoferVindas)
+**Cristhofer Vindas**  
+GitHub: [CristhoferVindas](https://github.com/CristhoferVindas)
 
----
+
